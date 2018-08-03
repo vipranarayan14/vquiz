@@ -71,17 +71,19 @@ main .quiz-choice label {
   max-width: 500px;
 }
 
-main .quiz-choice label.correct-answer {
-  background-color: #b4bf1f;
-}
-
 main .quiz-choice>input[type=radio]:checked+label {
   background-color: #ffed4b;
   font-weight: 700;
 }
 
+main .quiz-choice label.correct-answer,
+main .quiz-choice>input[type=radio]:checked+label.correct-answer {
+  background-color: #b4bf1f;
+}
+
 main .quiz-nav {
   margin: 5px 0;
+  height: 50px;
 }
 
 main .quiz-nav .quiz-nav-button {
