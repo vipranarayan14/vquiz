@@ -92,11 +92,7 @@ const roundToTwo = num => +(Math.round(num + "e+2") + "e-2");
 
 const updateProgress = questionNumber => {
 
-
   const quizProgressPercent = roundToTwo(questionNumber / questions.length) * 100;
-
-  console.log(questionNumber, quizProgressPercent);
-
 
   quizProgressEle.style.width = quizProgressPercent + '%';
 
@@ -150,17 +146,13 @@ const startQuiz = () => {
 
 const endQuiz = () => {
 
-  handleQuizFormSubmit();
+  const choiceEles = quizQuestionsForm.querySelectorAll('.quiz-choice>input[type=radio]');
+
+  choiceEles.forEach(choiceEle => choiceEle.setAttribute('disabled', 'true'));
 
   quizContainerEle.classList.remove('quiz-first-question');
   quizContainerEle.classList.remove('quiz-last-question');
   quizContainerEle.classList.replace('quiz-inprogress', 'quiz-end');
-
-}
-
-const handleQuizFormSubmit = () => {
-
-
 
 }
 
@@ -178,6 +170,8 @@ const showAnswers = () => {
   });
 
   quizContainerEle.classList.replace('quiz-end', 'quiz-checkanswers');
+
+  showQuestionCard(1);
 
 };
 
